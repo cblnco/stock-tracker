@@ -1,0 +1,10 @@
+{
+  "name": "stock-tracker",
+  "version": "0.1.0",
+  "description": "A sample storage application",
+  "main": "index.js",
+  "repository": "https://github.com/cblnco/stock-tracker.git",
+  "author": "Juan Carlos Blanco <jcarlos.kb@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
