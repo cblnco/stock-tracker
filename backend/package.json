@@ -1,0 +1,7 @@
+{
+  "name": "stock-tracker-backend",
+  "version": "0.1.0",
+  "description": "Stock tracker backend",
+  "main": "index.js",
+  "license": "MIT"
+}
