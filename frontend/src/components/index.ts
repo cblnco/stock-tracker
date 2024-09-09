@@ -1,1 +1,3 @@
-export * from './ItemCard';
+export * from './ProductCard';
+export * from './Footer';
+export * from './Content';
