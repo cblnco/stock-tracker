@@ -1,7 +1,13 @@
 import { TextareaAutosize as BaseTextareaAutosize } from '@mui/material';
 import { styled } from '@mui/system';
+import { Product } from './types';
 
-export default function Textarea({ value }: { value: string }) {
+export type TextAreaProps = {
+  value: string;
+  handleOnChange: (product: Partial<Product>) => void;
+};
+
+export default function Textarea({ value, handleOnChange }: TextAreaProps) {
   const blue = {
     100: '#DAECFF',
     200: '#b6daff',
@@ -63,8 +69,9 @@ export default function Textarea({ value }: { value: string }) {
     <Textarea
       aria-label="minimum height"
       value={value}
-      minRows={3}
+      minRows={2}
       placeholder="Minimum 3 rows"
+      onChange={e => handleOnChange({ description: e.target.value })}
     />
   );
 }
