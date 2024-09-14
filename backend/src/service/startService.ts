@@ -1,6 +1,7 @@
+import cors from 'cors';
 import express from 'express';
-import { getClient, ProductStore } from "../database";
-import { logger } from "../utils";
+import { getClient, ProductStore } from '../database';
+import { logger } from '../utils';
 import { createRoutes } from '../routes';
 
 export async function startService() {
@@ -13,6 +14,9 @@ export async function startService() {
   const productStore = await ProductStore.create(dbClient, logger);
 
   const routes = await createRoutes(productStore, logger);
+
+  // Will accept all cors requests, only for local dev.
+  app.use(cors());
 
   app.use('/api/product', routes);
 

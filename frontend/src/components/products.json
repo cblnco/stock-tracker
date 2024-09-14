@@ -5,8 +5,7 @@
     "price": 180,
     "img": "https://images.pexels.com/photos/4352247/pexels-photo-4352247.jpeg",
     "description": "A simple yet comfortable sofa for your living room",
-    "stock": 10,
-    "warningThreshold": 3
+    "stock": 10
   },
   "AwqUtscTrqTUsnh": {
     "id": "AwqUtscTrqTUsnh",
@@ -14,17 +13,15 @@
     "price": 180,
     "img": "https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg",
     "description": "A modern dark sofa with clean lines, flexible cushions, and slim dark metal legs, perfect for versatile styling.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "VuchJbp0Ptwmbgt": {
     "id": "VuchJbp0Ptwmbgt",
     "name": "Gray towels",
     "price": 180,
-    "img": "https://images.pexels.com/photos/821649/pexels-photo-821649.jpeg",
+    "img": "https://rileyhome.com/wp-content/uploads/2023/10/Lifestyle-2-8.png",
     "description": "Set of soft, absorbent grey towels with a sleek, minimalist design, perfect for adding a modern touch to your bathroom.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "n6fZCZsgFX2Oo78": {
     "id": "n6fZCZsgFX2Oo78",
@@ -32,70 +29,54 @@
     "price": 180,
     "img": "https://images.pexels.com/photos/2762247/pexels-photo-2762247.jpeg",
     "description": "A sleek, modern black chair with a unique, sculptural backrest design, perfect for adding style and comfort to any space. Durable and lightweight, ideal for both indoor and outdoor use.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "W7Yxy7J4YRdcwCm": {
     "id": "W7Yxy7J4YRdcwCm",
-    "name": "Black Chair",
+    "name": "Wooden table",
     "price": 180,
-    "img": "https://images.pexels.com/photos/6480202/pexels-photo-6480202.jpeg",
+    "img": "https://cdn11.bigcommerce.com/s-3zraqrbbb6/products/5530/images/389903/Salcombe-Walnut-Round-Dining-Table-1__24220.1700655611.386.513.jpg",
     "description": "A stylish wooden coffee table with a smooth, rounded top and sturdy geometric legs, perfect for adding a touch of elegance to your living room.",
-    "stock": 8,
-    "warningThreshold": 3
-  },
-  "fcEoNTCq-3lTdDb": {
-    "id": "fcEoNTCq-3lTdDb",
-    "name": "Chair",
-    "price": 180,
-    "img": "https://images.pexels.com/photos/3705539/pexels-photo-3705539.jpeg",
-    "description": "A comfortable wooden chiar featuring a clean, minimalist design with sleek lines and ample surface space, perfect for entryways or living areas. Its simple aesthetic makes it versatile for various interior styles.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "eQUd56rKR_j0Yuh": {
     "id": "eQUd56rKR_j0Yuh",
-    "name": "Chair",
+    "name": "Gray Sofa",
     "price": 180,
     "img": "https://images.pexels.com/photos/133919/pexels-photo-133919.jpeg",
     "description": "This stylish light gray sofa comes with a set of blue, gray, and red cushions, offering both comfort and a pop of color. The soft, durable fabric of the sofa and vibrant cushions create a modern, cozy aesthetic, perfect for elevating your living space. Ideal for versatile styling and everyday relaxation.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "zxlkf5_7J33jFkT": {
     "id": "zxlkf5_7J33jFkT",
-    "name": "Luxe Modern Upholstered Bed",
+    "name": "Modern Upholstered Bed",
     "price": 180,
     "img": "https://images.pexels.com/photos/6899433/pexels-photo-6899433.jpeg",
     "description": "Transform your bedroom into a sanctuary of style and comfort with the Luxe Modern Upholstered Bed. This elegant bed features a sleek, contemporary design with a plush, button-tufted headboard that adds a touch of sophistication to any space.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "mFAX-HX9V-7ihxm": {
     "id": "mFAX-HX9V-7ihxm",
-    "name": "Tranquil Harmony Upholstered Bed",
+    "name": "Tranquil Harmony Bed",
     "price": 180,
     "img": "https://images.pexels.com/photos/6588582/pexels-photo-6588582.jpeg",
-    "description": "The Tranquil Harmony Upholstered Bed is a perfect blend of elegance and versatility. Designed with a sophisticated palette of gray, light gray, and sand colors, this bed creates a calming and serene environment that complements any décor style.",
-    "stock": 8,
-    "warningThreshold": 3
+    "description": "The Tranquil Harmony Bed is a perfect blend of elegance and versatility. Designed with a sophisticated palette of gray, light gray, and sand colors, this bed creates a calming and serene environment that complements any décor style.",
+    "stock": 8
   },
   "wPQH8oAWA6WgOqm": {
     "id": "wPQH8oAWA6WgOqm",
     "name": "Basic Pillow Set",
     "price": 180,
-    "img": "https://images.pexels.com/photos/6603475/pexels-photo-6603475.jpeg",
+    "img": "https://www.riverpineoutlet.com/cdn/shop/products/certified-organic-cotton-sleep-pillow-stack.-2.jpg",
     "description": "Experience unparalleled comfort and elegance with the Pure Bliss White Pillow Set. These pristine white pillows are designed to enhance your living space with a touch of sophistication and provide exceptional support for restful sleep or stylish décor.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   },
   "-jED1ytR33d_soN": {
     "id": "-jED1ytR33d_soN",
     "name": "Serenity Chair",
     "price": 180,
-    "img": "https://images.pexels.com/photos/6800945/pexels-photo-6800945.jpeg",
+    "img": "https://m.media-amazon.com/images/I/419yBXRv9mL.jpg",
     "description": "Embrace ultimate relaxation with the Serenity Wooden Hammock-Threaded Chair. Combining the natural beauty of wood with the comfort of a hammock, this chair is a perfect addition to any patio, garden, or cozy nook in your home.",
-    "stock": 8,
-    "warningThreshold": 3
+    "stock": 8
   }
 }

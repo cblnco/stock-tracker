@@ -1,12 +1,14 @@
-import Knex from 'knex';
+import Knex, { Knex as KnexType } from 'knex';
 import { logger } from '../utils';
 
 const POSTGRES_PORT = 5432;
 const POSTGRES_DATABASE = 'stock-tracker';
-const POSTGRES_HOST = "localhost";
-const POSTGRES_PASSWORD = "postgres";
-const POSTGRES_USER = "postgres";
+const POSTGRES_HOST = 'localhost';
+const POSTGRES_PASSWORD = 'postgres';
+const POSTGRES_USER = 'postgres';
 
+const MIGRATIONS_DIR = 'migrations';
+const SEED_DIR = 'seeds';
 
 interface KnexConfig {
   client: string;
@@ -38,26 +40,27 @@ const knexConfig: KnexConfig = {
   },
 };
 
-// async function createStockDb() {
-//   const creationClient = Knex(knexConfig);
+async function setupDatabase(knex: KnexType) {
+  try {
+    await knex.migrate.latest({
+      directory: MIGRATIONS_DIR,
+    });
 
-//   logger.info(`Verifying if "${POSTGRES_DATABASE}" table exists.`);
-//   try {
-//     logger.info(`Using "${POSTGRES_HOST}" postgres HOST.`);
-//     await creationClient.raw(`CREATE DATABASE "${POSTGRES_DATABASE}";`);
-//     logger.info(`Successfully created the "${POSTGRES_DATABASE}" database.`);
-//   } catch (error) {
-//     logger.info(
-//       `The "${POSTGRES_DATABASE}" database already exists, skipping its creation.`
-//     );
-//   } finally {
-//     await creationClient.destroy();
-//   }
-// }
+    await knex.seed.run({
+      directory: SEED_DIR,
+    });
+
+    logger.info('Successfully ran database migrations and seed data.');
+  } catch (error) {
+    logger.error(`An error happened while setting upd the database: ${error}`);
+    throw Error(`Knex database setup error: ${error}`);
+  }
+}
 
 async function getClient() {
-  // await createStockDb();
-  return Knex(knexConfig);
+  const knex = Knex(knexConfig);
+  await setupDatabase(knex);
+  return knex;
 }
 
 export { getClient };

@@ -1,10 +1,12 @@
+import { Knex } from 'knex';
+
 const TABLE_NAME = 'product_stock';
 
-exports.up = async knex => {
-  const hasRawAppsTable = await knex.schema.hasTable(TABLE_NAME);
+export const up = async (knex: Knex): Promise<void> => {
+  const hasRawProductTable = await knex.schema.hasTable(TABLE_NAME);
 
-  if (!hasRawAppsTable) {
-    await knex.schema.createTable(TABLE_NAME, table => {
+  if (!hasRawProductTable) {
+    await knex.schema.createTable(TABLE_NAME, (table) => {
       table.comment('Table that stores sample products');
       table
         .string('id')
@@ -24,6 +26,6 @@ exports.up = async knex => {
   }
 };
 
-exports.down = async knex => {
+export const down = async (knex: Knex): Promise<void> => {
   await knex.schema.dropTable(TABLE_NAME);
 };

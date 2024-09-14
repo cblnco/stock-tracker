@@ -40,7 +40,7 @@ export function Search() {
 export default function Content() {
   const [productsData, setProductsData] = useState({
     ...products,
-  } as ProductCollection);
+  } as unknown as ProductCollection);
 
   const handleOnProductUpdate = (product: Product) => {
     setProductsData(prevState => ({

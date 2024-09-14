@@ -9,6 +9,6 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*", "migrations/20240912044252_create_product_stock.js"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
