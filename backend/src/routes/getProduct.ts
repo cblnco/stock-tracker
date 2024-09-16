@@ -15,6 +15,7 @@ export async function getProduct(productStore: ProductStore, logger: Logger) {
         }),
         {}
       );
+      logger.info('Successfully retrieved all the products');
       return res.status(200).send(productCollection);
     } catch (error) {
       logger.error(
@@ -29,6 +30,7 @@ export async function getProduct(productStore: ProductStore, logger: Logger) {
 
     try {
       const product = await productStore.get({ id: productId });
+      logger.info(`Retrieved the product: ${product?.id}`);
       return product
         ? res.status(200).send(product)
         : res
@@ -47,6 +49,7 @@ export async function getProduct(productStore: ProductStore, logger: Logger) {
 
     try {
       const product = await productStore.get({ name: productName });
+      logger.info(`Retrieved the product: ${product?.name}`);
       return product
         ? res.status(200).send(product)
         : res

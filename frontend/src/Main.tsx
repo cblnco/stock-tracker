@@ -1,7 +1,7 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import App from './App';
+import Layout from './components/Layout';
 import Footer from './components/Footer';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Content from './components/Content';
@@ -15,7 +15,7 @@ const darkTheme = createTheme({
 export default function Main() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <App>
+      <Layout>
         <CssBaseline enableColorScheme />
         <Container
           maxWidth="lg"
@@ -25,7 +25,7 @@ export default function Main() {
           <Content />
         </Container>
         <Footer />
-      </App>
+      </Layout>
     </ThemeProvider>
   );
 }

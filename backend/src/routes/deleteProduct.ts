@@ -13,12 +13,11 @@ export async function deleteProduct(
 
     try {
       const product = await productStore.delete({ id: productId });
+      logger.info(`Deleted the product id ${productId}`);
       return product
-        ? res
-            .status(200)
-            .send({
-              message: `successfully removed the product Id: ${productId}.`,
-            })
+        ? res.status(200).send({
+            message: `successfully removed the product Id: ${productId}.`,
+          })
         : res
             .status(404)
             .send({ message: `The product id ${productId} was not found` });
@@ -35,12 +34,11 @@ export async function deleteProduct(
 
     try {
       const product = await productStore.delete({ name: productName });
+      logger.info(`Deleted the product id ${productName}`);
       return product
-        ? res
-            .status(200)
-            .send({
-              message: `successfully removed the product: ${productName}.`,
-            })
+        ? res.status(200).send({
+            message: `successfully removed the product: ${productName}.`,
+          })
         : res
             .status(404)
             .send({ message: `The product ${productName} was not found` });

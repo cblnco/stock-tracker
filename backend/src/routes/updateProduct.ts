@@ -14,6 +14,7 @@ async function update({ req, res, productStore, logger }: UpdateProductParams) {
   const product = req.body as Product;
   try {
     const products = await productStore.upsert(product);
+    logger.info(`Successfully updated the Product ${product.name}`);
     return res.status(200).send(products);
   } catch (error) {
     logger.error(
