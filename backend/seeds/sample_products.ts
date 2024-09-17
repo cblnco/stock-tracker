@@ -61,7 +61,7 @@ export const seed = async (knex: Knex): Promise<void> => {
         price: 90,
         img: 'https://images.pexels.com/photos/133919/pexels-photo-133919.jpeg',
         description:
-          'This stylish light gray sofa comes with a set of blue, gray, and red cushions, offering both comfort and a pop of color.',
+          'This stylish light gray sofa comes with a set of blue, gray, and red cushions.',
         stock: 11,
         altdesc: 'Gray Sofa',
       },
@@ -71,7 +71,7 @@ export const seed = async (knex: Knex): Promise<void> => {
         price: 200,
         img: 'https://images.pexels.com/photos/6899433/pexels-photo-6899433.jpeg',
         description:
-          'An elegant bed that features a sleek, contemporary design with a plush, button-tufted headboard.',
+          'An elegant bed that features a sleek, contemporary design.',
         stock: 20,
         altdesc: 'Modern Bed',
       },
@@ -81,7 +81,7 @@ export const seed = async (knex: Knex): Promise<void> => {
         price: 180,
         img: 'https://images.pexels.com/photos/6588582/pexels-photo-6588582.jpeg',
         description:
-          'A bed that has a perfect blend of elegance and versatility. Designed with a sophisticated palette of gray, light gray, and sand colors.',
+          'A bed that has a perfect blend of elegance and versatility.',
         stock: 29,
         altdesc: 'Harmony Bed',
       },
@@ -101,7 +101,7 @@ export const seed = async (knex: Knex): Promise<void> => {
         price: 125,
         img: 'https://m.media-amazon.com/images/I/419yBXRv9mL.jpg',
         description:
-          'Embrace ultimate relaxation with the Serenity Wooden Hammock-Threaded Chair. Combining the natural beauty of wood and a great comfort.',
+          'Embrace ultimate relaxation with the Serenity chair that combines beauty and a great comfort.',
         stock: 22,
         altdesc: 'Serenity chair',
       },

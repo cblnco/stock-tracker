@@ -10,7 +10,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
 import { useState } from 'react';
 import { TextField } from '@mui/material';
-import Textarea from './TextArea';
 import { Product } from './types';
 
 export type ProductCardProps = {
@@ -30,40 +29,41 @@ type ProductLabelProps = {
 
 const ProductForm = ({ product, handleOnChange }: ProductFormProps) => {
   const { name, price, description, stock } = product;
+  const fieldStyle = {
+    marginBottom: '0.6rem',
+  };
 
   return (
     <>
       <TextField
-        id="standard-basic"
-        label="Standard"
+        sx={fieldStyle}
+        id="product-name"
         variant="standard"
         value={name}
         onChange={e => handleOnChange({ name: e.target.value })}
       />
       <TextField
-        id="standard-number"
-        label="price"
+        id="product-price"
         type="number"
         variant="standard"
-        slotProps={{
-          inputLabel: {
-            shrink: true,
-          },
-        }}
+        sx={{ width: '30%', ...fieldStyle }}
         value={price}
         onChange={e => handleOnChange({ price: Number(e.target.value) })}
       />
-      <Textarea value={description!} handleOnChange={handleOnChange} />
       <TextField
-        id="standard-number"
-        label="In Stock"
-        type="number"
+        id="product-description"
+        multiline
+        rows={2}
+        sx={fieldStyle}
+        value={description}
         variant="standard"
-        slotProps={{
-          inputLabel: {
-            shrink: true,
-          },
-        }}
+        onChange={e => handleOnChange({ description: e.target.value })}
+      />
+      <TextField
+        id="product-stock"
+        type="number"
+        sx={{ width: '30%', ...fieldStyle }}
+        variant="standard"
         value={stock}
         onChange={e => handleOnChange({ stock: Number(e.target.value) })}
       />
@@ -75,13 +75,25 @@ const ProductLabels = ({ product }: ProductLabelProps) => {
   const { name, price, description, stock } = product;
   return (
     <>
-      <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+      <Typography
+        variant="body1"
+        sx={{ color: 'text.secondary', marginBottom: '0.5rem' }}
+      >
         {name}
       </Typography>
-      <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-        ${price}
+      <Typography
+        variant="body1"
+        sx={{ color: 'text.secondary', marginBottom: '1rem' }}
+      >
+        ${Number(price).toFixed(2)}
       </Typography>
-      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+      <Typography
+        variant="body2"
+        sx={{
+          color: 'text.secondary',
+          minHeight: '6rem',
+        }}
+      >
         {description}
       </Typography>
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -114,7 +126,16 @@ export const ProductCard = ({
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        maxHeight: 'fix-content',
+      }}
+    >
       <CardMedia
         component="img"
         height="194"

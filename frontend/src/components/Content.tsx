@@ -2,20 +2,25 @@ import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
-import { Pagination } from '@mui/material';
 import { ProductCard } from './ProductCard';
 import { Product } from './types';
 import { ProductClient, ProductCollection } from '../api';
 import { ProductForm } from './ProductForm';
 import { Search } from './Search';
+import ProductPagination from './ProductPagination';
+
+const PAGE_SIZE = 12;
 
 export default function Content() {
   const [fullProducts, setFullProducts] = useState<
     ProductCollection | undefined
   >(undefined);
+
   const [productsData, setProductsData] = useState<
     ProductCollection | undefined
   >(undefined);
+
+  const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -32,6 +37,12 @@ export default function Content() {
       ...prevState,
       [product.id]: product,
     }));
+
+    setFullProducts(prevState => ({
+      ...prevState,
+      [product.id]: product,
+    }));
+
     await ProductClient.update(product);
   };
 
@@ -41,7 +52,18 @@ export default function Content() {
       delete updatedProducts[productId];
       return updatedProducts;
     });
+
+    setFullProducts(prevState => {
+      const updatedProducts = { ...prevState };
+      delete updatedProducts[productId];
+      return updatedProducts;
+    });
+
     await ProductClient.delete(productId);
+  };
+
+  const handleOnPageChange = (_: React.ChangeEvent<unknown>, page: number) => {
+    setPageNumber(page);
   };
 
   return (
@@ -57,7 +79,7 @@ export default function Content() {
             overflow: 'auto',
           }}
         >
-          <Typography gutterBottom>Current products</Typography>
+          <Typography gutterBottom>Current products:</Typography>
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex' },
@@ -72,24 +94,33 @@ export default function Content() {
           </Box>
         </Box>
         <Grid container spacing={2} columns={12}>
-          {productsData &&
-            Object.entries(productsData).map(([productId, product]) => (
-              <Grid key={`${productId}-grid`} size={{ xs: 3 }}>
-                <ProductCard
-                  key={productId}
-                  product={product}
-                  updateProduct={handleOnProductUpdate}
-                  deleteProduct={handleOnProductDelete}
-                />
-              </Grid>
-            ))}
+          {Object.entries(productsData || {}).length
+            ? Object.entries(productsData!)
+                .slice((pageNumber - 1) * PAGE_SIZE, pageNumber * PAGE_SIZE)
+                .map(([productId, product]) => (
+                  <Grid key={`${productId}-grid`} size={{ xs: 3 }}>
+                    <ProductCard
+                      key={productId}
+                      product={product}
+                      updateProduct={handleOnProductUpdate}
+                      deleteProduct={handleOnProductDelete}
+                    />
+                  </Grid>
+                ))
+            : 'No results found...'}
         </Grid>
-        <Box sx={{ display: 'flex', flexDirection: 'row', pt: 4 }}>
-          <Pagination
-            hidePrevButton
-            hideNextButton
-            count={10}
-            boundaryCount={10}
+        <Box
+          sx={{
+            justifyContent: 'flex-end',
+            display: 'flex',
+            flexDirection: 'row',
+            pt: 4,
+          }}
+        >
+          <ProductPagination
+            products={productsData}
+            postsPerPage={PAGE_SIZE}
+            onPageChange={handleOnPageChange}
           />
         </Box>
       </Box>

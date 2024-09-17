@@ -3,19 +3,26 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Layout from './components/Layout';
 import Footer from './components/Footer';
-import { ThemeProvider, createTheme } from '@mui/material';
+import { PaletteMode, ThemeProvider, createTheme } from '@mui/material';
 import Content from './components/Content';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
-
 export default function Main() {
+  const [theme, setTheme] = React.useState<PaletteMode>('dark');
+
+  const handleOnThemeToggle = () => {
+    const newMode = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newMode);
+  };
+
+  const appTheme = createTheme({
+    palette: {
+      mode: theme,
+    },
+  });
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Layout>
+    <ThemeProvider theme={appTheme}>
+      <Layout theme={theme} onThemeToggle={handleOnThemeToggle}>
         <CssBaseline enableColorScheme />
         <Container
           maxWidth="lg"
