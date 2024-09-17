@@ -2,20 +2,14 @@ import React from 'react';
 import {
   AppBar,
   Box,
-  Button,
-  FormControl,
-  IconButton,
-  MenuItem,
   PaletteMode,
-  Select,
-  SelectChangeEvent,
   Toolbar,
   Typography,
-  createTheme,
   styled,
 } from '@mui/material';
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
-import { ThemeProvider } from '@emotion/react';
+
+import { ToggleTheme } from './ToggleTheme';
+
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'relative',
   display: 'flex',
@@ -32,10 +26,12 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
 }));
 
 interface TemplateFrameProps {
+  theme: PaletteMode;
+  onThemeToggle: () => void;
   children: React.ReactNode;
 }
 
-function App({ children }: TemplateFrameProps) {
+function App({ children, theme, onThemeToggle }: TemplateFrameProps) {
   return (
     <Box sx={{ height: '100dvh', display: 'flex', flexDirection: 'column' }}>
       <StyledAppBar>
@@ -56,6 +52,7 @@ function App({ children }: TemplateFrameProps) {
           >
             Stock Tracker
           </Typography>
+          <ToggleTheme currentTheme={theme} toggleColorMode={onThemeToggle} />
         </Toolbar>
       </StyledAppBar>
       <Box sx={{ flex: '1 1', overflow: 'auto' }}>{children}</Box>
