@@ -6,7 +6,7 @@ export const up = async (knex: Knex): Promise<void> => {
   const hasRawProductTable = await knex.schema.hasTable(TABLE_NAME);
 
   if (!hasRawProductTable) {
-    await knex.schema.createTable(TABLE_NAME, (table) => {
+    await knex.schema.createTable(TABLE_NAME, table => {
       table.comment('Table that stores sample products');
       table
         .string('id')

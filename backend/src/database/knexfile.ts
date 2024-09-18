@@ -1,14 +1,16 @@
 import Knex, { Knex as KnexType } from 'knex';
 import { logger } from '../utils';
 
-const POSTGRES_PORT = 5432;
-const POSTGRES_DATABASE = 'stock-tracker';
-const POSTGRES_HOST = 'localhost';
-const POSTGRES_PASSWORD = 'postgres';
-const POSTGRES_USER = 'postgres';
-
 const MIGRATIONS_DIR = 'migrations';
 const SEED_DIR = 'seeds';
+
+const {
+  POSTGRES_PORT = 5432,
+  POSTGRES_DATABASE = 'stock-tracker',
+  POSTGRES_HOST = 'localhost',
+  POSTGRES_PASSWORD = 'postgres',
+  POSTGRES_USER = 'postgres',
+} = process.env;
 
 interface KnexConfig {
   client: string;
@@ -18,6 +20,9 @@ interface KnexConfig {
     user: string;
     password: string;
     database: string;
+    ssl: {
+      rejectUnauthorized: boolean;
+    };
   };
   pool: {
     min: number;
@@ -29,10 +34,11 @@ const knexConfig: KnexConfig = {
   client: 'pg',
   connection: {
     host: POSTGRES_HOST,
-    port: POSTGRES_PORT,
+    port: POSTGRES_PORT as number,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
     database: POSTGRES_DATABASE,
+    ssl: { rejectUnauthorized: false },
   },
   pool: {
     min: 5,
