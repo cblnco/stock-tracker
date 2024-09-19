@@ -5,11 +5,11 @@ const MIGRATIONS_DIR = 'migrations';
 const SEED_DIR = 'seeds';
 
 const {
-  POSTGRES_PORT = 5432,
-  POSTGRES_DATABASE = 'stock-tracker',
-  POSTGRES_HOST = 'localhost',
-  POSTGRES_PASSWORD = 'postgres',
-  POSTGRES_USER = 'postgres',
+  TRACKER_POSTGRES_PORT = 5432,
+  TRACKER_POSTGRES_DATABASE = 'stock-tracker',
+  TRACKER_POSTGRES_HOST = 'localhost',
+  TRACKER_POSTGRES_PASSWORD = 'postgres',
+  TRACKER_POSTGRES_USER = 'postgres',
 } = process.env;
 
 interface KnexConfig {
@@ -33,11 +33,11 @@ interface KnexConfig {
 const knexConfig: KnexConfig = {
   client: 'pg',
   connection: {
-    host: POSTGRES_HOST,
-    port: POSTGRES_PORT as number,
-    user: POSTGRES_USER,
-    password: POSTGRES_PASSWORD,
-    database: POSTGRES_DATABASE,
+    host: TRACKER_POSTGRES_HOST,
+    port: TRACKER_POSTGRES_PORT as number,
+    user: TRACKER_POSTGRES_USER,
+    password: TRACKER_POSTGRES_PASSWORD,
+    database: TRACKER_POSTGRES_DATABASE,
     ssl: { rejectUnauthorized: false },
   },
   pool: {

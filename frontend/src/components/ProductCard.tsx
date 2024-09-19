@@ -110,6 +110,7 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   const [productData, setProductData] = useState<Product>(product);
   const [isEditEnabled, setIsEditEnabled] = useState(false);
+  const [isOutOfStock, setIsOutOfStock] = useState(productData.stock <= 0);
 
   const handleOnChange = (data: Partial<Product>) => {
     setProductData(prevState => ({ ...prevState, ...data }));
@@ -117,6 +118,7 @@ export const ProductCard = ({
 
   const handleOnSave = () => {
     setIsEditEnabled(false);
+    setIsOutOfStock(productData.stock <= 0);
     updateProduct(productData);
   };
 
@@ -136,7 +138,26 @@ export const ProductCard = ({
         maxHeight: 'fix-content',
       }}
     >
+       {
+         isOutOfStock && (<Typography
+          variant="body2"
+          sx={{
+            color: 'text.main',
+            position: 'absolute',
+            zIndex: '10',
+            fontSize: '2rem',
+            paddingTop: '5rem',
+            paddingLeft: '0.6rem',
+            paddingRight: '0.6rem',
+          }}
+        >
+          [ OUT OF STOCK ]
+        </Typography>)
+       }
       <CardMedia
+        sx={{
+          opacity: isOutOfStock ? '17%' : '100%',
+        }}
         component="img"
         height="194"
         src={productData.img}
